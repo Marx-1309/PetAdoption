@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PetAdoptionMAUI.Mobile.Pages.DetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:PetAdoptionMAUI.Mobile.Controls"
+    xmlns:dtos="clr-namespace:PetAdoptionMAUI.Shared.Dtos;assembly=PetAdoptionMAUI.Shared"
+    xmlns:models="clr-namespace:PetAdoptionMAUI.Mobile.Models"
+    xmlns:vm="clr-namespace:PetAdoptionMAUI.Mobile.ViewModels"
+    x:DataType="vm:DetailsViewModel"
+    BackgroundColor="{StaticResource BgColor}"
+    Shell.NavBarIsVisible="False"
+    Shell.PresentationMode="ModalAnimated">
+
+    <Grid
+        Padding="10,20,10,10"
+        RowDefinitions="Auto, *, *, Auto"
+        RowSpacing="20">
+
+        <FlexLayout Grid.Row="0" JustifyContent="SpaceBetween">
+            <Border Style="{StaticResource iconBtnContainer}">
+                <Image Source="left_arrow" />
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoBackCommand}" />
+                </Border.GestureRecognizers>
+            </Border>
+            <Label
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Pet Details"
+                VerticalOptions="Center" />
+            <Border Style="{StaticResource iconBtnContainer}">
+                <Image Source="heart"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Image.Shadow>
+                        <Shadow />
+                    </Image.Shadow>
+                    <Image.Triggers>
+                        <DataTrigger
+                            Binding="{Binding PetDetail.IsFavorite}"
+                            TargetType="Image"
+                            Value="True">
+                            <Setter Property="Source" Value="heart_filled" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ToggleFavoriteCommand}" />
+                </Border.GestureRecognizers>
+            </Border>
+        </FlexLayout>
+
+        <!--<Border
+            Grid.Row="1"
+            HeightRequest="300"
+            HorizontalOptions="Center"
+            StrokeShape="RoundRectangle 150"
+            StrokeThickness="0"
+            WidthRequest="300">
+            <Image
+                Aspect="AspectFill"
+                HeightRequest="300"
+                Source="{Binding PetDetail.Image}"
+                WidthRequest="300" />
+        </Border>-->
+        <Frame Grid.Row="1"
+               HeightRequest="300"
+               WidthRequest="300"
+               CornerRadius="150"
+               IsClippedToBounds="True">
+            <Image
+                Aspect="AspectFill"
+                HeightRequest="300"
+                Source="{Binding PetDetail.Image}"
+                WidthRequest="300" />
+
+        </Frame>
+
+        <Grid
+            Grid.Row="2"
+            ColumnDefinitions="*, *, *"
+            RowDefinitions="Auto, Auto, Auto"
+            RowSpacing="25">
+            <Label
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                FontAttributes="Bold"
+                FontSize="25"
+                Text="{Binding PetDetail.Name}"
+                VerticalOptions="End" />
+
+            <Border
+                Grid.Row="0"
+                Grid.Column="2"
+                Padding="5"
+                BackgroundColor="White"
+                StrokeThickness="0"
+                VerticalOptions="End">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="25"
+                    HorizontalTextAlignment="End"
+                    Text="{Binding PetDetail.Price, StringFormat='{0:C}'}"
+                    TextColor="{StaticResource Primary}" />
+            </Border>
+
+            <Label
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                FontSize="16"
+                LineHeight="1.5"
+                Text="{Binding PetDetail.Description}" />
+
+            <controls:PetFeatControl
+                Grid.Row="2"
+                Grid.Column="0"
+                Icon="breed"
+                Label="Breed"
+                Value="{Binding PetDetail.Breed}" />
+
+
+            <controls:PetFeatControl
+                Grid.Row="2"
+                Grid.Column="1"
+                Icon="{Binding PetDetail.GenderImage}"
+                Label="Gender"
+                Value="{Binding PetDetail.GenderDisplay}" />
+
+
+            <controls:PetFeatControl
+                Grid.Row="2"
+                Grid.Column="2"
+                Icon="calendar"
+                Label="Age"
+                Value="{Binding PetDetail.Age}" />
+        </Grid>
+
+        <Button
+            Grid.Row="3"
+            Command="{Binding AdoptNowCommand}"
+            Style="{StaticResource btnPrimary}"
+            Text="..."
+            IsEnabled="False">
+            <Button.Triggers>
+                <DataTrigger
+                    Binding="{Binding PetDetail.AdoptionStatus}"
+                    TargetType="Button"
+                    Value="Adopted">
+                    <Setter Property="Text" Value="Adopted" />
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding PetDetail.AdoptionStatus}"
+                    TargetType="Button"
+                    Value="Available">
+                    <Setter Property="Text" Value="Adop Now" />
+                    <Setter Property="IsEnabled" Value="True" />
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+
+        <ActivityIndicator
+            Grid.RowSpan="4"
+            HorizontalOptions="Center"
+            IsRunning="{Binding IsBusy}"
+            VerticalOptions="Center"
+            Color="{StaticResource Primary}" />
+    </Grid>
+
+</ContentPage>

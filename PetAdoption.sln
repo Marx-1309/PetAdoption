@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetAdoptionMAUI.Mobile", "PetAdoptionMAUI.Mobile\PetAdoptionMAUI.Mobile.csproj", "{B1DDA441-1023-4B4F-A46B-F1AD06BD98A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetAdoptionMAUI.Api", "PetAdoptionMAUI.Api\PetAdoptionMAUI.Api.csproj", "{A60A0EB0-CF2F-46BF-9A5C-5B6E6E908524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetAdoptionMAUI.Shared", "PetAdoptionMAUI.Shared\PetAdoptionMAUI.Shared.csproj", "{9BBE5BA0-A184-4BF0-8CE9-8DEA7E0E727F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1DDA441-1023-4B4F-A46B-F1AD06BD98A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1DDA441-1023-4B4F-A46B-F1AD06BD98A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1DDA441-1023-4B4F-A46B-F1AD06BD98A1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B1DDA441-1023-4B4F-A46B-F1AD06BD98A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1DDA441-1023-4B4F-A46B-F1AD06BD98A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1DDA441-1023-4B4F-A46B-F1AD06BD98A1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A60A0EB0-CF2F-46BF-9A5C-5B6E6E908524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A60A0EB0-CF2F-46BF-9A5C-5B6E6E908524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A60A0EB0-CF2F-46BF-9A5C-5B6E6E908524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A60A0EB0-CF2F-46BF-9A5C-5B6E6E908524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BBE5BA0-A184-4BF0-8CE9-8DEA7E0E727F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BBE5BA0-A184-4BF0-8CE9-8DEA7E0E727F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BBE5BA0-A184-4BF0-8CE9-8DEA7E0E727F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BBE5BA0-A184-4BF0-8CE9-8DEA7E0E727F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E02EEDF-5E91-4912-BBB9-396EA776AA2F}
+	EndGlobalSection
+EndGlobal
